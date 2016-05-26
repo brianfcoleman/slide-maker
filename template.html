@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>{{ title }}</title>
+        <link href="style.css" rel="stylesheet">
+        <script>
+window.addEventListener('keypress', function(event) {
+    if (event.defaultPrevented) {
+        return;
+    }
+    const key = event.key
+    if (key === ' ' || key === 'Enter' || key === 'ArrowRight') {
+        window.location = '{{ next }}'
+        event.preventDefault();
+    } else if (key === 'ArrowLeft') {
+        window.location = '{{ previous }}'
+        event.preventDefault();
+    }
+}, true);
+        </script>
+    </head>
+    <body>
+        {% include "content.html" %}
+    </body>
+</html>
